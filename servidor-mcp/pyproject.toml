@@ -1,0 +1,20 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "servidor-mcp-central-de-salas"
+version = "1.0.0"
+description = "Servidor MCP central-de-salas (Streamable HTTP, stateless, MRTR na reserva)"
+requires-python = ">=3.10"
+dependencies = [
+    "mcp==2.3.0",
+    "starlette==1.10.0",
+    "uvicorn==0.54.0",
+]
+
+[project.scripts]
+servidor-mcp = "servidor_mcp.__main__:main"
+
+[tool.setuptools]
+packages = ["servidor_mcp"]
