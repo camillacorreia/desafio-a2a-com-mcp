@@ -17,6 +17,7 @@ import sys
 import uvicorn
 
 from servidor_mcp.dominio import CentralDeSalas, diretorio_dados
+from servidor_mcp.log import LogDeRequests
 from servidor_mcp.servidor import criar_servidor
 
 BYTES_MINIMOS = 32
@@ -65,7 +66,7 @@ def main() -> None:
         file=sys.stderr,
         flush=True,
     )
-    uvicorn.run(app, host=host, port=porta, log_level="warning")
+    uvicorn.run(LogDeRequests(app), host=host, port=porta, log_level="warning")
 
 
 if __name__ == "__main__":
